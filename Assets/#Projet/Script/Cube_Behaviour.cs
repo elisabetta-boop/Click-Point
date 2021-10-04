@@ -30,8 +30,6 @@ public class Cube_Behaviour : MonoBehaviour
         void OnMouseDown()
         {
             ash.SetDestination(this);
-
-
         }
 }
 

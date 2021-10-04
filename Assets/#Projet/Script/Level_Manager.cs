@@ -16,7 +16,7 @@ public class GameData // pour sauvegarde (les trucs a memoriser)
 public class Level_Manager : MonoBehaviour
 {
     public static Level_Manager instance; //1 pour singleton level manager
-    
+    public bool loaded = false;
 
     public void Save()
     {
@@ -47,7 +47,7 @@ public class Level_Manager : MonoBehaviour
     }
     public void Load()
     {
-        GameData data; // == null une instance cree est tjr null
+        GameData data = null; // == null une instance cree est tjr null
 
         if(File.Exists(Application.persistentDataPath + "/data.dat"))
         {
@@ -63,9 +63,6 @@ public class Level_Manager : MonoBehaviour
             }
         }
         Initialize(data);
-            
-
-        
     }
     void Start()
     {
@@ -107,6 +104,12 @@ public class Level_Manager : MonoBehaviour
                 cubes[i].colorIndex = data.CubesColor[i];
                 cubes[i].loaded = true;
             }
+        }
+        ash.Initialize();
+
+        for(int i=0; i < cubes.Length; i++)
+        {
+            cubes[i].Initialize();
         }
         
     }

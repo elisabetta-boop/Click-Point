@@ -9,4 +9,9 @@ public class Scene_Changer : MonoBehaviour
     {
         SceneManager.LoadScene(name);
     }
+    public void ChangeWithLoad(string name) 
+    {
+        FindObjectOfType<Level_Manager>().loaded = true;
+        Change(name);
+    }
 }
